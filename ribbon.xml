@@ -1,0 +1,31 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+	<ribbon>
+		<tabs>
+			<tab idMso="TabHome">
+				<group id="customGroup" insertBeforeMso="GroupStyles" getLabel="rbGetLabel" >
+					<button id="btnRound" onAction="rbRound" getLabel="rbGetLabel" getScreentip="rbGetScreentip" getSupertip="rbGetSupertip" />
+					<button id="btnRoundUp" onAction="rbRoundUp" getLabel="rbGetLabel" getScreentip="rbGetScreentip" getSupertip="rbGetSupertip" />
+					<button id="btnRoundDown" onAction="rbRoundDown" getLabel="rbGetLabel" getScreentip="rbGetScreentip" getSupertip="rbGetSupertip" />
+<!--					<dropDown id="ddDigits" 
+							sizeString="AAAAA"
+							onAction="rbDD"
+							getSelectedItemIndex="rbDD_GetSelectedItemIndex" >
+						<item id="id2" label="0,01"/> 
+						<item id="id1" label="0,1"/> 
+						<item id="id0" label="1"/> 
+						<item id="id-1" label="10"/> 
+						<item id="id-2" label="100"/> 
+						<item id="id-3" label="1000"/> 
+					</dropDown> -->
+					<comboBox id="cboDigits" 
+						sizeString="AAAAA" 
+						onChange="rbCboDigits" getItemLabel="rbCboDigits_GetItemLabel"  getItemCount = "rbCboDigits_Count" getText="rbCboDigits_GetText"
+						getScreentip="rbGetScreentip" getSupertip="rbGetSupertip" />
+					<checkBox id="chkNumbers" 
+							onAction="rbChkNumbers" getLabel="rbGetLabel" getScreentip="rbGetScreentip" getSupertip="rbGetSupertip" />
+<!--					<button id="btnTest" label="Test" onAction="rbTest" /> -->
+				</group>
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>
