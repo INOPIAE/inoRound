@@ -1,0 +1,71 @@
+<customUI  xmlns="http://schemas.microsoft.com/office/2009/07/customui" >
+	<ribbon >
+		<tabs >
+			<tab  idMso="TabHome" >
+				<group 
+					id="grpInoRound"
+					getLabel="rbGetLabel"
+					insertBeforeMso="GroupStyles">
+					<button 
+						id="btnRound"
+						image="round_png"
+						getLabel="rbGetLabel"
+						getScreentip="rbGetScreentip"
+						getSupertip="rbGetSupertip"
+						onAction="rbRound"/>
+					<button 
+						id="btnRoundUp"
+						image="roundup_png"
+						getLabel="rbGetLabel"
+						getScreentip="rbGetScreentip"
+						getSupertip="rbGetSupertip"
+						onAction="rbRoundUp"/>
+					<button 
+						id="btnRoundDown"
+						image="rounddown_png"
+						getLabel="rbGetLabel"
+						getScreentip="rbGetScreentip"
+						getSupertip="rbGetSupertip"
+						onAction="rbRoundDown"/>
+					<!--
+						<dropDown id="ddDigits"         sizeString="AAAAA"
+						onAction="rbDD"
+						getSelectedItemIndex="rbDD_GetSelectedItemIndex" >
+						<item id="id2" label="0,01"/>        <item id="id1"
+						label="0,1"/>        <item id="id0" label="1"/>        <item
+						id="id-1" label="10"/>        <item id="id-2" label="100"/>
+						<item id="id-3" label="1000"/>       </dropDown>
+					-->
+					<comboBox 
+						id="cboDigits"
+						sizeString="AAAAA"
+						getItemCount="rbCboDigits_Count"
+						getItemLabel="rbCboDigits_GetItemLabel"
+						getScreentip="rbGetScreentip"
+						getSupertip="rbGetSupertip"
+						getText="rbCboDigits_GetText"
+						onChange="rbCboDigits"/>
+					<checkBox 
+						id="chkNumbers"
+						getLabel="rbGetLabel"
+						getScreentip="rbGetScreentip"
+						getSupertip="rbGetSupertip"
+						onAction="rbChkNumbers"/>
+					<menu 
+						id="mnuInoRound"
+						image="burger_png"
+						getLabel="rbGetLabel"
+						getScreentip="rbGetScreentip"
+						getSupertip="rbGetSupertip">
+						<button 
+							id="btnInfoInoRound"
+							getLabel="rbGetLabel"
+							getScreentip="rbGetScreentip"
+							getSupertip="rbGetSupertip"
+							onAction="rbInfoInoRound"/>
+					</menu >
+				</group >
+			</tab >
+		</tabs >
+	</ribbon >
+</customUI >
