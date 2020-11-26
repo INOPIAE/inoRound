@@ -22,7 +22,7 @@ Public Sub UpdateXlamFileProperties()
     Application.VBE.VBProjects(strVBProjects).VBComponents(strVBComponents).Properties("IsAddin") = False
     Set wkb = Application.Workbooks(strVBProjects & ".xlam")
 '    strText = wkb.BuiltinDocumentProperties("Comments")
-    strText = "Version " & strMakroVersion & " " & Format(dtVersionOf, "D. MMMM JJJJ")
+    strText = "Version " & strMakroVersion & " " & Format(dtVersionOf, "D. MMMM YYYY")
     wkb.BuiltinDocumentProperties("Comments") = strText
     Application.VBE.VBProjects(strVBProjects).VBComponents(strVBComponents).Properties("IsAddin") = True
 
