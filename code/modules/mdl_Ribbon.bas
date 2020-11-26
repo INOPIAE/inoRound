@@ -14,16 +14,20 @@ End Sub
 Public Sub rbGetLabel(ByRef control As IRibbonControl, ByRef label As Variant)
     SetLanguage
     Select Case control.ID
-        Case "customGroup"
+        Case "grpInoRound"
             label = strLabel(0)
         Case "btnRound"
-            label = strLabel(1)
+            'label = strLabel(1)
         Case "btnRoundUp"
-            label = strLabel(2)
+            'label = strLabel(2)
         Case "btnRoundDown"
-            label = strLabel(3)
+            'label = strLabel(3)
         Case "chkNumbers"
             label = strLabel(4)
+        Case "mnuInoRound"
+            'label = strLabel(5)
+        Case "btnInfoInoRound"
+            label = strLabel(6)
         Case Else
             label = ""
     End Select
@@ -44,7 +48,6 @@ Public Sub rbGetScreentip(ByRef control As IRibbonControl, ByRef text)
         Case Else
             text = ""
     End Select
-
 End Sub
 
 Public Sub rbGetSupertip(ByRef control As IRibbonControl, ByRef text)
@@ -63,6 +66,7 @@ Public Sub rbGetSupertip(ByRef control As IRibbonControl, ByRef text)
             text = ""
     End Select
 End Sub
+
 ' control functions
 Public Sub rbRound(ByRef ctrl As IRibbonControl)
     Rounding inoRoundF, intCurrentDigits
@@ -73,7 +77,6 @@ Public Sub rbRoundUp(ByRef ctrl As IRibbonControl)
 End Sub
 
 Public Sub rbRoundDown(ByRef ctrl As IRibbonControl)
-Debug.Print intCurrentDigits
     Rounding inoRoundD, intCurrentDigits
 End Sub
 
@@ -141,6 +144,10 @@ End Sub
 
 Public Sub rbCboDigits_GetText(ByRefcontrol As IRibbonControl, ByRef text)
     text = "0" & Application.International(xlDecimalSeparator) & "01"
+End Sub
+
+Public Sub rbInfoInoRound(ByRef control As IRibbonControl)
+    frm_Info.Show
 End Sub
 
 Private Sub SetLanguage()

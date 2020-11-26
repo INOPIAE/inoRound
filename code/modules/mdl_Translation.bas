@@ -1,10 +1,11 @@
 Attribute VB_Name = "mdl_Translation"
 Option Explicit
 
-Public strLabel(4) As String
+Public strLabel(6) As String
 Public strScreentip(4) As String
 Public strSupertip(4) As String
 Public strError(1) As String
+Public strfrmInfo(0) As String
 
 Public Sub germanText()
     strLabel(0) = "inoRound Runden"
@@ -12,6 +13,8 @@ Public Sub germanText()
     strLabel(2) = "Aufrunden"
     strLabel(3) = "Abrunden"
     strLabel(4) = "Zahlen runden"
+    strLabel(5) = "Info Menu"
+    strLabel(6) = "Info"
     
     strSupertip(0) = "Markierte Zahl(en) werden kaufmännsich gerundet."
     strSupertip(1) = "Markierte Zahl(en) werden aufgerundet."
@@ -27,6 +30,8 @@ Public Sub germanText()
     
     strError(0) = "Eingabehinweis"
     strError(1) = "Der eingegeben Text ist keine Zahl."
+    
+    strfrmInfo(0) = "Der Quellcode is OpenSource unter AGPLv3 und evrfügbar auf "
 End Sub
 
 Public Sub englishText()
@@ -35,6 +40,8 @@ Public Sub englishText()
     strLabel(2) = "Round up"
     strLabel(3) = "Round down"
     strLabel(4) = "Round numbers"
+    strLabel(5) = "Info Menu"
+    strLabel(6) = "Info"
     
     strSupertip(0) = "Use flexible round for all marked cells."
     strSupertip(1) = "Use round up for all marked cells."
@@ -50,5 +57,7 @@ Public Sub englishText()
     
     strError(0) = "Eingabehinweis"
     strError(1) = "Der eingegeben Text ist keine Zahl."
+    
+    strfrmInfo(0) = "Source code is OpenSource under AGPLv3 and available at "
 End Sub
 
