@@ -1,9 +1,9 @@
 Attribute VB_Name = "mdl_Translation"
 Option Explicit
 
-Public strLabel(6) As String
-Public strScreentip(4) As String
-Public strSupertip(4) As String
+Public strLabel(7) As String
+Public strScreentip(5) As String
+Public strSupertip(5) As String
 Public strError(1) As String
 Public strfrmInfo(0) As String
 
@@ -15,18 +15,22 @@ Public Sub germanText()
     strLabel(4) = "Zahlen runden"
     strLabel(5) = "Info Menu"
     strLabel(6) = "Info"
+    strLabel(7) = "Rundung entfernen"
     
     strSupertip(0) = "Markierte Zahl(en) werden kaufmännsich gerundet."
     strSupertip(1) = "Markierte Zahl(en) werden aufgerundet."
     strSupertip(2) = "Markierte Zahl(en) werden abgerundet."
     strSupertip(3) = "Wenn in einer Zelle eine Zahl steht, wird diese gerundet."
     strSupertip(4) = "Fügen sie ein Zahlbeispiel mit der Anzahl der benötigten Stellen vor oder hinter dem Komma ein."
+    strSupertip(4) = "Fügen sie ein Zahlbeispiel mit der Anzahl der benötigten Stellen vor oder hinter dem Komma ein."
+    strSupertip(5) = "Enfernt vorhandene Rundungen. Die Formatierung muss ggf. angepasst werden."
     
     strScreentip(0) = "Kaufmännsich runden"
     strScreentip(1) = "Aufrunden"
     strScreentip(2) = "Abrunden"
     strScreentip(3) = "Zahlen runden"
     strScreentip(4) = "Anzahl der Rundungsstellen auswählen"
+    strScreentip(5) = "Rundung entfernen"
     
     strError(0) = "Eingabehinweis"
     strError(1) = "Der eingegeben Text ist keine Zahl."
@@ -42,18 +46,21 @@ Public Sub englishText()
     strLabel(4) = "Round numbers"
     strLabel(5) = "Info Menu"
     strLabel(6) = "Info"
+    strLabel(7) = "Remove round"
     
     strSupertip(0) = "Use flexible round for all marked cells."
     strSupertip(1) = "Use round up for all marked cells."
     strSupertip(2) = "Use round down for all marked cells."
     strSupertip(3) = "If a cell holds a numeric value it the number will be rounded."
     strSupertip(4) = "Add a formatted example with the amount of digits before or after the decimal separator."
+    strSupertip(5) = "Remomes round. May be the formatting need to be adjusted."
     
     strScreentip(0) = "Flexible round"
     strScreentip(1) = "Round up"
     strScreentip(2) = "Round down"
     strScreentip(3) = "Round numbers"
     strScreentip(4) = "Define number of digits to get rounded"
+    strScreentip(5) = "Remove round"
     
     strError(0) = "Eingabehinweis"
     strError(1) = "Der eingegeben Text ist keine Zahl."

@@ -37,3 +37,5 @@ To round figures in calculations select the cells and use:
 The number of digits to round to is defined at 4.
 
 If 5 "Round numbers"  is ticked given figures are rounded as well.
+
+6 remove existing round

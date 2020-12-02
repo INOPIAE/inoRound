@@ -89,6 +89,7 @@ Function ReplaceRound(ByVal strFormula As String, ByVal intTypeOld As Integer, B
     ReplaceRound = strFormulaNew
 End Function
 
+
 Sub test()
     With ActiveSheet
         .Range("A1").Formula = "6"
@@ -98,11 +99,65 @@ Sub test()
         .Range("A5").Formula = "=ROUNDDOWN(A2,1)"
         .Range("A6").Formula = "=Sum(A1:A2)"
         .Range("A7").Formula = "AB"
+        .Range("A8").Formula = "=ROUND(10.345,1)"
+        .Range("A9").Formula = "=ROUND(Sum(A1:A2),1)"
        
-        .Range("A1:A7").Select
+        .Range("A1:A9").Select
     End With
 
     'Rounding
+    'RemoveRounding
 End Sub
 
+Public Sub RemoveRounding()
+    Dim rng As Range
+    Dim c As Range
+    initRound
+    Set rng = Selection
+    For Each c In rng
+        RemoveFunction c
+    Next
+End Sub
 
+Sub RemoveFunction(rng As Range)
+    Dim strFormula As String
+    Dim strFormulaNew As String
+    Dim strTest As String
+    'check if function exist
+    strFormula = rng.Formula
+    If Left(strFormula, 1) = "=" Then
+        strFormulaNew = strFormula
+        If Left(strFormula, 6) = "=ROUND" Then
+            strTest = Left(strFormula, InStr(strFormula, "("))
+            Select Case InStr(strFormula, "(")
+                Case 7 '"=ROUND("
+                    strFormulaNew = RemoveRound(strFormula, inoRoundF)
+                Case 9 '"=ROUNDUP("
+                    strFormulaNew = RemoveRound(strFormula, inoRoundU)
+                Case 11 '"=ROUNDDOWN("
+                    strFormulaNew = RemoveRound(strFormula, inoRoundD)
+                Case Else
+                    'no round
+            End Select
+        End If
+        rng.Formula = strFormulaNew
+    Else
+        'no formula
+    End If
+    
+End Sub
+
+Function RemoveRound(ByVal strFormula As String, ByVal intTypeOld As Integer) As String
+    Dim strFormulaNew As String
+    
+    
+
+    If InStrRev(strFormula, ",") > 1 Then
+        strFormula = Left(strFormula, InStrRev(strFormula, ",") - 1)
+    Else
+        strFormula = Replace(strFormula, ")", "")
+    End If
+    
+    strFormulaNew = Replace(strFormula, strRound(intTypeOld), "=")
+    RemoveRound = strFormulaNew
+End Function

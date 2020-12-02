@@ -28,6 +28,8 @@ Public Sub rbGetLabel(ByRef control As IRibbonControl, ByRef label As Variant)
             'label = strLabel(5)
         Case "btnInfoInoRound"
             label = strLabel(6)
+        Case "btnRemoveRound"
+            'label = strLabel(7)
         Case Else
             label = ""
     End Select
@@ -45,6 +47,8 @@ Public Sub rbGetScreentip(ByRef control As IRibbonControl, ByRef text)
             text = strScreentip(3)
         Case "cboDigits"
             text = strScreentip(4)
+        Case "btnRemoveRound"
+            text = strScreentip(5)
         Case Else
             text = ""
     End Select
@@ -62,6 +66,8 @@ Public Sub rbGetSupertip(ByRef control As IRibbonControl, ByRef text)
             text = strSupertip(3)
         Case "cboDigits"
             text = strSupertip(4)
+        Case "btnRemoveRound"
+            text = strSupertip(5)
         Case Else
             text = ""
     End Select
@@ -80,6 +86,9 @@ Public Sub rbRoundDown(ByRef ctrl As IRibbonControl)
     Rounding inoRoundD, intCurrentDigits
 End Sub
 
+Public Sub rbRemoveRound(ByRef ctrl As IRibbonControl)
+    RemoveRounding
+End Sub
 Public Sub rbDD(ByRef ctrl As IRibbonControl, ByRef dropdownID As String, ByRef selectedIndex As Variant)
     intCurrentDigits = CInt(Mid(dropdownID, 3))
 End Sub
