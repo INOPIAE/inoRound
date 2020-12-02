@@ -90,7 +90,7 @@ Public Sub rbRemoveRound(ByRef ctrl As IRibbonControl)
     RemoveRounding
 End Sub
 Public Sub rbDD(ByRef ctrl As IRibbonControl, ByRef dropdownID As String, ByRef selectedIndex As Variant)
-    intCurrentDigits = CInt(Mid(dropdownID, 3))
+    intCurrentDigits = CInt(VBA.Mid(dropdownID, 3))
 End Sub
 
 Sub rbDD_GetSelectedItemIndex(ByRef ctrl As IRibbonControl, ByRef returnedVal As Variant)
@@ -109,14 +109,14 @@ End Sub
 Public Sub rbCboDigits(ByRef control As Office.IRibbonControl, _
    ByRef text As Variant)
     Dim strText As String
-    strText = Replace(text, Application.International(xlThousandsSeparator), "")
+    strText = VBA.Replace(text, Application.International(xlThousandsSeparator), "")
     If IsNumeric(text) Then
         Dim strTest() As String
         strTest = Split(text, Application.International(xlDecimalSeparator))
         If UBound(strTest) = 0 Then
-            intCurrentDigits = -1 * (Len(strTest(0)) - 1)
+            intCurrentDigits = -1 * (VBA.Len(strTest(0)) - 1)
         Else
-            intCurrentDigits = Len(strTest(1))
+            intCurrentDigits = VBA.Len(strTest(1))
         End If
     Else
         MsgBox strError(1), , strError(0)

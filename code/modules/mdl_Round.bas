@@ -24,15 +24,15 @@ Public Sub Rounding(ByVal intType As Integer, ByVal intDigits As Integer)
     Next
 End Sub
 
-Sub AddFunction(rng As Range, Optional ByVal intType As Integer = 1, Optional ByVal intDigits As Integer = 2)
+Sub AddFunction(ByVal rng As Range, Optional ByVal intType As Integer = 1, Optional ByVal intDigits As Integer = 2)
     Dim strFormula As String
     Dim strFormulaNew As String
     Dim strTest As String
     'check if function exist
     strFormula = rng.Formula
-    If Left(strFormula, 1) = "=" Then
-        If InStr(strFormula, "(") > 2 Then
-            strTest = Left(strFormula, InStr(strFormula, "("))
+    If VBA.Left(strFormula, 1) = "=" Then
+        If VBA.InStr(strFormula, "(") > 2 Then
+            strTest = VBA.Left(strFormula, VBA.InStr(strFormula, "("))
             Select Case strTest
                 Case "=ROUND("
                     strFormulaNew = ReplaceRound(strFormula, inoRoundF, intType, intDigits)
@@ -42,11 +42,11 @@ Sub AddFunction(rng As Range, Optional ByVal intType As Integer = 1, Optional By
                     strFormulaNew = ReplaceRound(strFormula, inoRoundD, intType, intDigits)
                 Case Else
                     'no round
-                    strFormulaNew = strRound(intType) & Mid(strFormula, 2) & ", " & intDigits & ")"
+                    strFormulaNew = strRound(intType) & VBA.Mid(strFormula, 2) & ", " & intDigits & ")"
             End Select
         Else
             'no function at start
-            strFormulaNew = strRound(intType) & Mid(strFormula, 2) & ", " & intDigits & ")"
+            strFormulaNew = strRound(intType) & VBA.Mid(strFormula, 2) & ", " & intDigits & ")"
         End If
         rng.Formula = strFormulaNew
     Else
@@ -63,9 +63,9 @@ End Sub
 
 Private Function CountLetters(ByVal strTest As String, ByVal strSearch As String, Optional ByVal blnIgnoreCase As Boolean = True) As Integer
     If blnIgnoreCase Then
-        CountLetters = Len(strTest) - Len(Replace(UCase(strTest), UCase(strSearch), ""))
+        CountLetters = VBA.Len(strTest) - VBA.Len(VBA.Replace(UCase(strTest), UCase(strSearch), ""))
     Else
-        CountLetters = Len(strTest) - Len(Replace(strTest, strSearch, ""))
+        CountLetters = VBA.Len(strTest) - VBA.Len(VBA.Replace(strTest, strSearch, ""))
     End If
 End Function
 
@@ -79,13 +79,13 @@ Function ReplaceRound(ByVal strFormula As String, ByVal intTypeOld As Integer, B
     Else
     
     End If
-    If InStrRev(strFormula, ",") > 1 Then
-        strFormula = Left(strFormula, InStrRev(strFormula, ",")) & intDigits & ")"
+    If VBA.InStrRev(strFormula, ",") > 1 Then
+        strFormula = VBA.Left(strFormula, VBA.InStrRev(strFormula, ",")) & intDigits & ")"
     Else
-        strFormula = Replace(strFormula, ")", ", " & intDigits & ")")
+        strFormula = VBA.Replace(strFormula, ")", ", " & intDigits & ")")
     End If
     
-    strFormulaNew = Replace(strFormula, strRound(intTypeOld), strRound(intTypeNew))
+    strFormulaNew = VBA.Replace(strFormula, strRound(intTypeOld), strRound(intTypeNew))
     ReplaceRound = strFormulaNew
 End Function
 
@@ -125,11 +125,11 @@ Sub RemoveFunction(rng As Range)
     Dim strTest As String
     'check if function exist
     strFormula = rng.Formula
-    If Left(strFormula, 1) = "=" Then
+    If VBA.Left(strFormula, 1) = "=" Then
         strFormulaNew = strFormula
-        If Left(strFormula, 6) = "=ROUND" Then
-            strTest = Left(strFormula, InStr(strFormula, "("))
-            Select Case InStr(strFormula, "(")
+        If VBA.Left(strFormula, 6) = "=ROUND" Then
+            strTest = VBA.Left(strFormula, VBA.InStr(strFormula, "("))
+            Select Case VBA.InStr(strFormula, "(")
                 Case 7 '"=ROUND("
                     strFormulaNew = RemoveRound(strFormula, inoRoundF)
                 Case 9 '"=ROUNDUP("
@@ -152,12 +152,12 @@ Function RemoveRound(ByVal strFormula As String, ByVal intTypeOld As Integer) As
     
     
 
-    If InStrRev(strFormula, ",") > 1 Then
-        strFormula = Left(strFormula, InStrRev(strFormula, ",") - 1)
+    If VBA.InStrRev(strFormula, ",") > 1 Then
+        strFormula = VBA.Left(strFormula, VBA.InStrRev(strFormula, ",") - 1)
     Else
-        strFormula = Replace(strFormula, ")", "")
+        strFormula = VBA.Replace(strFormula, ")", "")
     End If
     
-    strFormulaNew = Replace(strFormula, strRound(intTypeOld), "=")
+    strFormulaNew = VBA.Replace(strFormula, strRound(intTypeOld), "=")
     RemoveRound = strFormulaNew
 End Function

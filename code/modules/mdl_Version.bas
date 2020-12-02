@@ -171,7 +171,7 @@ Public Function FolderWithVBAProjectFiles() As String
 
     SpecialPath = ThisWorkbook.Path
 
-    If Right(SpecialPath, 1) <> "\" Then
+    If VBA.Right(SpecialPath, 1) <> "\" Then
         SpecialPath = SpecialPath & "\"
     End If
     SpecialPath = SpecialPath & "code\"
