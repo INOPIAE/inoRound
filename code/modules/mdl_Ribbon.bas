@@ -151,6 +151,7 @@ Public Sub rbInfoInoRound(ByRef control As IRibbonControl)
 End Sub
 
 Private Sub SetLanguage()
+    intCurrentDigits = 2
     Dim lc As Long
     lc = Application.LanguageSettings.LanguageID(msoLanguageIDUI)
     Select Case lc

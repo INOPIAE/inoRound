@@ -1,8 +1,8 @@
 Attribute VB_Name = "mdl_Version"
 Option Explicit
 
-Public Const strMakroVersion As String = "1.01"
-Public Const dtVersionOf As Date = #11/26/2020#
+Public Const strMakroVersion As String = "1.02"
+Public Const dtVersionOf As Date = #2/12/2020#
 Private Const strVBProjects As String = "inoRound"
 Private Const strVBComponents As String = "DieseArbeitsmappe"
 
@@ -180,9 +180,9 @@ Public Function FolderWithVBAProjectFiles() As String
     Dim strF
     strFolders = Array("forms", "modules", "classes")
     For Each strF In strFolders
-        If FSO.FolderExists(SpecialPath & "forms") = False Then
+        If FSO.FolderExists(SpecialPath & strF) = False Then
             On Error Resume Next
-            MkDir SpecialPath & "forms"
+            MkDir SpecialPath & strF
             On Error GoTo 0
         End If
     Next
