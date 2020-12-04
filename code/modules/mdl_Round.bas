@@ -6,9 +6,9 @@ Public Const inoRoundU = 2
 Public Const inoRoundD = 3
 
 
-Private strRound(3) As String
+Public strRound(3) As String
 
-Private Sub initRound()
+Public Sub initRound()
     strRound(1) = "=ROUND("
     strRound(2) = "=ROUNDUP("
     strRound(3) = "=ROUNDDOWN("
@@ -28,6 +28,7 @@ Sub AddFunction(ByVal rng As Range, Optional ByVal intType As Integer = 1, Optio
     Dim strFormula As String
     Dim strFormulaNew As String
     Dim strTest As String
+    
     'check if function exist
     strFormula = rng.Formula
     If VBA.Left(strFormula, 1) = "=" Then
@@ -139,6 +140,7 @@ Sub RemoveFunction(rng As Range)
                 Case Else
                     'no round
             End Select
+            
         End If
         rng.Formula = strFormulaNew
     Else
@@ -150,8 +152,6 @@ End Sub
 Function RemoveRound(ByVal strFormula As String, ByVal intTypeOld As Integer) As String
     Dim strFormulaNew As String
     
-    
-
     If VBA.InStrRev(strFormula, ",") > 1 Then
         strFormula = VBA.Left(strFormula, VBA.InStrRev(strFormula, ",") - 1)
     Else
@@ -159,5 +159,9 @@ Function RemoveRound(ByVal strFormula As String, ByVal intTypeOld As Integer) As
     End If
     
     strFormulaNew = VBA.Replace(strFormula, strRound(intTypeOld), "=")
+    
+    If IsNumeric(Mid(strFormulaNew, 2)) Then
+        strFormulaNew = Mid(strFormulaNew, 2)
+    End If
     RemoveRound = strFormulaNew
 End Function

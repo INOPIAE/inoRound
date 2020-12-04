@@ -35,7 +35,7 @@ Public Sub germanText()
     strError(0) = "Eingabehinweis"
     strError(1) = "Der eingegeben Text ist keine Zahl."
     
-    strfrmInfo(0) = "Der Quellcode is OpenSource unter AGPLv3 und evrfügbar auf "
+    strfrmInfo(0) = "Der Quellcode is OpenSource unter AGPLv3 und verfügbar auf "
 End Sub
 
 Public Sub englishText()
