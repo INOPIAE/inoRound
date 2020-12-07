@@ -90,26 +90,6 @@ Function ReplaceRound(ByVal strFormula As String, ByVal intTypeOld As Integer, B
     ReplaceRound = strFormulaNew
 End Function
 
-
-Sub test()
-    With ActiveSheet
-        .Range("A1").Formula = "6"
-        .Range("A2").Formula = "=A1*11%"
-        .Range("A3").Formula = "=ROUND(A2,1)"
-        .Range("A4").Formula = "=ROUNDUP(A2,1)"
-        .Range("A5").Formula = "=ROUNDDOWN(A2,1)"
-        .Range("A6").Formula = "=Sum(A1:A2)"
-        .Range("A7").Formula = "AB"
-        .Range("A8").Formula = "=ROUND(10.345,1)"
-        .Range("A9").Formula = "=ROUND(Sum(A1:A2),1)"
-       
-        .Range("A1:A9").Select
-    End With
-
-    'Rounding
-    'RemoveRounding
-End Sub
-
 Public Sub RemoveRounding()
     Dim rng As Range
     Dim c As Range
@@ -160,8 +140,8 @@ Function RemoveRound(ByVal strFormula As String, ByVal intTypeOld As Integer) As
     
     strFormulaNew = VBA.Replace(strFormula, strRound(intTypeOld), "=")
     
-    If IsNumeric(Mid(strFormulaNew, 2)) Then
-        strFormulaNew = Mid(strFormulaNew, 2)
+    If IsNumeric(VBA.Mid(strFormulaNew, 2)) Then
+        strFormulaNew = VBA.Mid(strFormulaNew, 2)
     End If
     RemoveRound = strFormulaNew
 End Function
