@@ -17,11 +17,42 @@ End Sub
 Public Sub Rounding(ByVal intType As Integer, ByVal intDigits As Integer)
     Dim rng As Range
     Dim c As Range
+    Dim blnLarge As Boolean
+    Dim blnScreenUpdate As Boolean
+    Dim blnDisplayStatusbar As Boolean
+    Dim intCalc As Integer
+    Dim lngCount As Long
+    Dim lngActual As Long
+    
     initRound
     Set rng = Selection
+    
+    blnScreenUpdate = Application.ScreenUpdating
+    intCalc = Application.Calculation
+    blnDisplayStatusbar = Application.DisplayStatusBar
+    
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+    Application.DisplayStatusBar = True
+    
+    lngCount = rng.Cells.Count
+    If lngCount > 50 Then
+        MsgBox strError(3), , strError(2)
+    End If
+    
+    lngActual = 1
     For Each c In rng
+        Application.StatusBar = strError(4) & lngActual & strError(5) & lngCount
         AddFunction c, intType, intDigits
+        lngActual = lngActual + 1
     Next
+    
+    Application.StatusBar = False
+    Application.DisplayStatusBar = blnDisplayStatusbar
+    Application.ScreenUpdating = blnScreenUpdate
+    Application.Calculation = intCalc
+    Application.Calculate
+
 End Sub
 
 Sub AddFunction(ByVal rng As Range, Optional ByVal intType As Integer = 1, Optional ByVal intDigits As Integer = 2)
@@ -93,11 +124,42 @@ End Function
 Public Sub RemoveRounding()
     Dim rng As Range
     Dim c As Range
+    Dim blnLarge As Boolean
+    Dim blnScreenUpdate As Boolean
+    Dim blnDisplayStatusbar As Boolean
+    Dim intCalc As Integer
+    Dim lngCount As Long
+    Dim lngActual As Long
+    
     initRound
     Set rng = Selection
+    
+    blnScreenUpdate = Application.ScreenUpdating
+    intCalc = Application.Calculation
+    blnDisplayStatusbar = Application.DisplayStatusBar
+    
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+    Application.DisplayStatusBar = True
+    
+    lngCount = rng.Cells.Count
+    If lngCount > 50 Then
+        MsgBox strError(3), , strError(2)
+    End If
+    
+    lngActual = 1
     For Each c In rng
+        Application.StatusBar = strError(4) & lngActual & strError(5) & lngCount
         RemoveFunction c
+        lngActual = lngActual + 1
     Next
+    
+    Application.StatusBar = False
+    Application.DisplayStatusBar = blnDisplayStatusbar
+    Application.ScreenUpdating = blnScreenUpdate
+    Application.Calculation = intCalc
+    Application.Calculate
+
 End Sub
 
 Sub RemoveFunction(rng As Range)

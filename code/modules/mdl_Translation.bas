@@ -4,7 +4,7 @@ Option Explicit
 Public strLabel(7) As String
 Public strScreentip(5) As String
 Public strSupertip(5) As String
-Public strError(1) As String
+Public strError(5) As String
 Public strfrmInfo(0) As String
 
 Public Sub germanText()
@@ -34,6 +34,10 @@ Public Sub germanText()
     
     strError(0) = "Eingabehinweis"
     strError(1) = "Der eingegeben Text ist keine Zahl."
+    strError(2) = "Bearbeitungshinweis"
+    strError(3) = "Es dauert ein bisschen."
+    strError(4) = "Bearbeite Eintrag "
+    strError(5) = " von "
     
     strfrmInfo(0) = "Der Quellcode is OpenSource unter AGPLv3 und verfügbar auf "
 End Sub
@@ -64,6 +68,10 @@ Public Sub englishText()
     
     strError(0) = "Eingabehinweis"
     strError(1) = "Der eingegeben Text ist keine Zahl."
+    strError(2) = "Editing note"
+    strError(3) = "The process will take a while"
+    strError(4) = "Process entry "
+    strError(5) = " of "
     
     strfrmInfo(0) = "Source code is OpenSource under AGPLv3 and available at "
 End Sub
