@@ -1,5 +1,6 @@
 Attribute VB_Name = "mdl_Round"
 Option Explicit
+Option Private Module
 
 Public Const inoRoundF = 1
 Public Const inoRoundU = 2

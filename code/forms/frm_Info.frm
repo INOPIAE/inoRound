@@ -6,7 +6,7 @@ Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} frm_Info
    ClientTop       =   390
    ClientWidth     =   4710
    OleObjectBlob   =   "frm_Info.frx":0000
-   StartUpPosition =   1  'CenterOwner
+   StartUpPosition =   1  'Fenstermitte
 End
 Attribute VB_Name = "frm_Info"
 Attribute VB_GlobalNameSpace = False

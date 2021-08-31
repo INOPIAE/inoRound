@@ -1,5 +1,6 @@
 Attribute VB_Name = "mdl_Ribbon"
 Option Explicit
+Option Private Module
 
 Private mDDcurrentID As Variant
 Private intCurrentDigits As Integer
@@ -11,7 +12,7 @@ Public Sub OnRibbonLoad(ByRef ribbon As IRibbonUI)
     Set gobjRibbon = ribbon
 End Sub
 
-Public Sub rbGetLabel(ByRef control As IRibbonControl, ByRef label As Variant)
+Public Sub rbGetLabelR(ByRef control As IRibbonControl, ByRef label As Variant)
     SetLanguage
     Select Case control.ID
         Case "grpInoRound"
@@ -35,7 +36,7 @@ Public Sub rbGetLabel(ByRef control As IRibbonControl, ByRef label As Variant)
     End Select
 End Sub
 
-Public Sub rbGetScreentip(ByRef control As IRibbonControl, ByRef text)
+Public Sub rbGetScreentipR(ByRef control As IRibbonControl, ByRef text)
     Select Case control.ID
         Case "btnRound"
             text = strScreentip(0)
@@ -54,7 +55,7 @@ Public Sub rbGetScreentip(ByRef control As IRibbonControl, ByRef text)
     End Select
 End Sub
 
-Public Sub rbGetSupertip(ByRef control As IRibbonControl, ByRef text)
+Public Sub rbGetSupertipR(ByRef control As IRibbonControl, ByRef text)
     Select Case control.ID
         Case "btnRound"
             text = strSupertip(0)

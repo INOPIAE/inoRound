@@ -1,5 +1,6 @@
 Attribute VB_Name = "mdl_Translation"
 Option Explicit
+Option Private Module
 
 Public strLabel(7) As String
 Public strScreentip(5) As String
