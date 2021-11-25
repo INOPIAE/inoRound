@@ -13,8 +13,8 @@ Public Sub OnRibbonLoad(ByRef ribbon As IRibbonUI)
 End Sub
 
 Public Sub rbGetLabelR(ByRef control As IRibbonControl, ByRef label As Variant)
-    SetLanguage
-    Select Case control.ID
+    'SetLanguage
+    Select Case control.id
         Case "grpInoRound"
             label = strLabel(0)
         Case "btnRound"
@@ -37,7 +37,7 @@ Public Sub rbGetLabelR(ByRef control As IRibbonControl, ByRef label As Variant)
 End Sub
 
 Public Sub rbGetScreentipR(ByRef control As IRibbonControl, ByRef text)
-    Select Case control.ID
+    Select Case control.id
         Case "btnRound"
             text = strScreentip(0)
         Case "btnRoundUp"
@@ -56,7 +56,7 @@ Public Sub rbGetScreentipR(ByRef control As IRibbonControl, ByRef text)
 End Sub
 
 Public Sub rbGetSupertipR(ByRef control As IRibbonControl, ByRef text)
-    Select Case control.ID
+    Select Case control.id
         Case "btnRound"
             text = strSupertip(0)
         Case "btnRoundUp"
@@ -120,7 +120,7 @@ Public Sub rbCboDigits(ByRef control As Office.IRibbonControl, _
             intCurrentDigits = VBA.Len(strTest(1))
         End If
     Else
-        MsgBox strError(1), , strError(0)
+        MsgBox t("The entered value is no number."), , strErrorCaptionHint
     End If
 End Sub
 
@@ -160,7 +160,7 @@ Public Sub rbInfoInoRound(ByRef control As IRibbonControl)
     frm_Info.Show
 End Sub
 
-Private Sub SetLanguage()
+Private Sub rbSetLanguage()
     intCurrentDigits = 2
     Dim lc As Long
     lc = Application.LanguageSettings.LanguageID(msoLanguageIDUI)

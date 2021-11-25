@@ -86,7 +86,7 @@ Private Sub TestReplaceRound()
 TestExit:
     Exit Sub
 TestFail:
-    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+    Assert.fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
 '@TestMethod("Uncategorized")
@@ -133,7 +133,7 @@ Private Sub TestRemoveRound()
 TestExit:
     Exit Sub
 TestFail:
-    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+    Assert.fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
 Private Sub FillWorksheet()
@@ -238,7 +238,7 @@ Private Sub TestReplaceRounding()
 TestExit:
     Exit Sub
 TestFail:
-    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+    Assert.fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
 '@TestMethod("Uncategorized")
@@ -319,7 +319,7 @@ Private Sub TestRemoveRounding()
 TestExit:
     Exit Sub
 TestFail:
-    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+    Assert.fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
 '@TestMethod("Uncategorized")
@@ -380,5 +380,5 @@ Private Sub TestReplaceRoundingNumber()
 TestExit:
     Exit Sub
 TestFail:
-    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+    Assert.fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub

@@ -8,6 +8,41 @@ Public strSupertip(5) As String
 Public strError(5) As String
 Public strfrmInfo(0) As String
 
+Public Const strErrorCaption = "Error" ' < translate
+Public Const strErrorCaptionHint = "Instering hint" ' < translate
+
+Public Sub setTranslationStrings()
+    strLabel(0) = t("inoRound Round")
+    strLabel(1) = t("Round")
+    strLabel(2) = t("Round up")
+    strLabel(3) = t("Round down")
+    strLabel(4) = t("Round numbers")
+    strLabel(5) = t("Info Menu")
+    strLabel(6) = t("Info")
+    strLabel(7) = t("Remove round")
+    
+    strSupertip(0) = t("Use flexible round for all marked cells.")
+    strSupertip(1) = t("Use round up for all marked cells.")
+    strSupertip(2) = t("Use round down for all marked cells.")
+    strSupertip(3) = t("If a cell holds a numeric value it the number will be rounded.")
+    strSupertip(4) = t("Add a formatted example with the amount of digits before or after the decimal separator.")
+    strSupertip(5) = t("Remomes round. May be the formatting need to be adjusted.")
+    
+    strScreentip(0) = t("Flexible round")
+    strScreentip(1) = t("Round up")
+    strScreentip(2) = t("Round down")
+    strScreentip(3) = t("Round numbers")
+    strScreentip(4) = t("Define number of digits to get rounded")
+    strScreentip(5) = t("Remove round")
+    
+    strError(0) = strErrorCaptionHint
+    strError(1) = t("The entered value is no number.")
+    strError(2) = t("Editing note")
+    strError(3) = t("The process will take a while")
+
+    
+End Sub
+
 Public Sub germanText()
     strLabel(0) = "inoRound Runden"
     strLabel(1) = "Runden"

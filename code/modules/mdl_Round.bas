@@ -38,12 +38,12 @@ Public Sub Rounding(ByVal intType As Integer, ByVal intDigits As Integer)
     
     lngCount = rng.Cells.Count
     If lngCount > 50 Then
-        MsgBox strError(3), , strError(2)
+        MsgBox t("The process will take a while."), , t("Editing note")
     End If
     
     lngActual = 1
     For Each c In rng
-        Application.StatusBar = strError(4) & lngActual & strError(5) & lngCount
+        Application.StatusBar = t("Process entry {} of {}", lngActual, lngCount)
         AddFunction c, intType, intDigits
         lngActual = lngActual + 1
     Next

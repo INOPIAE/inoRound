@@ -21,7 +21,8 @@ Private Sub cmdOK_Click()
 End Sub
 
 Private Sub UserForm_Initialize()
+    TranslateForm Me
     Me.lblTitle.Caption = "inoRound Version " & strMakroVersion & " (" & dtVersionOf & ")"
-    Me.lblCopyright.Caption = "Copyright 2020 - " & Year(Date)
-    Me.lblInfo.Caption = strfrmInfo(0) & "https://github.com/INOPIAE/inoRound"
+    Me.lblCopyright.Caption = t("Copyright") & " 2020 - " & Year(Date)
+    Me.lblInfo.Caption = t("The source code is OpenSource under AGPLv3.{}The source code and the documentation are available at {}", vbNewLine, "https://github.com/INOPIAE/inoRound")
 End Sub

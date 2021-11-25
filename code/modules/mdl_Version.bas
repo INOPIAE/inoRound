@@ -2,8 +2,8 @@ Attribute VB_Name = "mdl_Version"
 Option Explicit
 Option Private Module
 
-Public Const strMakroVersion As String = "1.07"
-Public Const dtVersionOf As Date = #8/31/2021#
+Public Const strMakroVersion As String = "1.08"
+Public Const dtVersionOf As Date = #11/25/2021#
 Private Const strVBProjects As String = "inoRound"
 Private Const strVBComponents As String = "DieseArbeitsmappe"
 
@@ -102,7 +102,7 @@ Public Sub ImportModules()
     ' and  modified
     Dim wkbTarget As Excel.Workbook
     Dim objFSO As Scripting.FileSystemObject
-    Dim objFile As Scripting.File
+    Dim objFile As Scripting.file
     Dim szTargetWorkbook As String
     Dim szImportPath As String
     Dim szFileName As String
@@ -151,7 +151,7 @@ Public Sub ImportModules()
         If (objFSO.GetExtensionName(objFile.Name) = "cls") Or _
             (objFSO.GetExtensionName(objFile.Name) = "frm") Or _
             (objFSO.GetExtensionName(objFile.Name) = "bas") Then
-            cmpComponents.Import objFile.Path
+            cmpComponents.Import objFile.path
         End If
         
     Next objFile
@@ -170,7 +170,7 @@ Public Function FolderWithVBAProjectFiles() As String
     Set WshShell = CreateObject("WScript.Shell")
     Set FSO = CreateObject("scripting.filesystemobject")
 
-    SpecialPath = ThisWorkbook.Path
+    SpecialPath = ThisWorkbook.path
 
     If VBA.Right(SpecialPath, 1) <> "\" Then
         SpecialPath = SpecialPath & "\"

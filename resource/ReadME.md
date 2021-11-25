@@ -1,0 +1,1 @@
+To create the translations template activate the Excel-Add-in developers.xla. The Add-In is available at http://vbagettext.sourceforge.net/
